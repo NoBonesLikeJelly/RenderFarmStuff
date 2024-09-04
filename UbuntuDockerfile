@@ -1,0 +1,35 @@
+FROM --platform=linux/amd64 ubuntu:22.04
+
+WORKDIR /opt/opencue
+
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get install -y \
+  gcc \
+  python3-dev \
+  time \
+  python3-pip
+
+RUN python3 -m pip install --upgrade pip setuptools==58.0.4
+
+
+COPY --from=opencue/rqd /opt/opencue/rqd-*-all.tar.gz /opt/opencue/
+COPY --from=opencue/rqd /opt/opencue/proto/ /opt/opencue/proto/
+
+RUN mkdir -p /etc/opencue
+#COPY --from=opencue/rqd /etc/opencue/rqd.conf /etc/opencue/rqd.conf
+RUN echo "[Override]" > /etc/opencue/rqd.conf
+RUN echo "USE_NIMBY_PYNPUT=false" >> /etc/opencue/rqd.conf
+
+RUN tar -xvf /opt/opencue/rqd-*-all.tar.gz --strip-components=1
+
+RUN python3 -m pip install -r requirements.txt
+
+#RUN python3 setup.py test
+RUN python3 setup.py install
+
+# RQD gRPC server
+EXPOSE 8444
+
+# NOTE: This shell out is needed to avoid RQD getting PID 0 which leads to leaking child processes.
+ENTRYPOINT ["/bin/bash", "-c", "set -e && rqd"]
