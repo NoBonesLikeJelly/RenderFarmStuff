@@ -7,8 +7,8 @@ COPY houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz ./
 
 RUN tar -xvf houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
     rm houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
-    houdini-20.5.332-linux_x86_64_gcc11.2/houdini.install --auto-install --install-houdini && \
-    rm -r houdini-20.5.332-linux_x86_64_gcc11.2
+#    houdini-20.5.332-linux_x86_64_gcc11.2/houdini.install --auto-install --install-houdini && \
+#    rm -r houdini-20.5.332-linux_x86_64_gcc11.2
 
 RUN apt-get install -y libnss3 libxss1 libpci3
 
