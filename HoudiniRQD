@@ -13,6 +13,6 @@ RUN tar -xvf houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
 
 RUN apt-get install -y libnss3 libxss1 libpci3
 
-RUN /opt/hfs20.5.332/bin/hserver -S its-houdini
+#RUN /opt/hfs20.5.332/bin/hserver -S its-houdini
 
-ENV PATH="$PATH:/opt/hfs20.5.332/bin"
+#ENV PATH="$PATH:/opt/hfs20.5.332/bin"
