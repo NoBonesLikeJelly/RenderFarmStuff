@@ -6,13 +6,12 @@ FROM it069989.massey.ac.nz:5000/blenderrqd
 COPY houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz ./
 
 RUN tar -xvf houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
-    rm houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz 
-    # && \
-#    houdini-20.5.332-linux_x86_64_gcc11.2/houdini.install --auto-install --install-houdini && \
-#    rm -r houdini-20.5.332-linux_x86_64_gcc11.2
+    rm houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
+    echo "yes" | houdini-20.5.332-linux_x86_64_gcc11.2/houdini.install --auto-install --install-houdini && \
+    rm -r houdini-20.5.332-linux_x86_64_gcc11.2
 
 RUN apt-get install -y libnss3 libxss1 libpci3
 
-#RUN /opt/hfs20.5.332/bin/hserver -S its-houdini
+RUN /opt/hfs20.5.332/bin/hserver -S its-houdini
 
-#ENV PATH="$PATH:/opt/hfs20.5.332/bin"
+ENV PATH="$PATH:/opt/hfs20.5.332/bin"
