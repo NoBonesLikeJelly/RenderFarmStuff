@@ -3,7 +3,7 @@ FROM it069989.massey.ac.nz:5000/blenderrqd
 #ARG BLENDER_INSTALL_DIR=/usr/local/blender
 #RUN mkdir -p ${BLENDER_INSTALL_DIR}
 
-COPY ../houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz ./
+COPY houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz ./
 
 RUN tar -xvf houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz && \
     rm houdini-20.5.332-linux_x86_64_gcc11.2.tar.gz
