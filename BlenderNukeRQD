@@ -1,0 +1,10 @@
+FROM it069989.massey.ac.nz:5000/nukerqd
+
+RUN apt-get update 
+RUN apt-get install -y wget
+ARG BLENDER_INSTALL_DIR=/usr/local/blender
+RUN curl -SL https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.1-linux-x64.tar.xz -o blender.tar.xz && \
+    tar -xvf blender.tar.xz -C ${BLENDER_INSTALL_DIR} --strip-components=1 %% \
+    rm blender.tar.xz
+
+ENV PATH="$PATH:/usr/local/blender"

@@ -2,7 +2,7 @@ FROM it069989.massey.ac.nz:5000/baserqdubuntu
 
 #COPY Nuke15.1v2-linux-x86_64.tgz ./
 RUN apt-get update 
-RUN apt-get install -y libgl1-mesa-glx curl qtbase5-dev qt5-qmake qtbase5-private-dev libc6 libgcc1 libstdc++6 libxcb1 libx11-6 libxext6 libxrender1 libxi6 libxrandr2 libxtst6 libglib2.0-0 libfontconfig1 libfreetype6 libpng16-16 libexpat1 zlib1g libgl1-mesa-glx libglu1-mesa libxcomposite1 libxdamage1 libxfixes3 libxinerama1 libxcursor1 libasound2 libcurl4 cmake libxcb-shape0 libsm6
+RUN apt-get install -y wget libgl1-mesa-glx curl qtbase5-dev qt5-qmake qtbase5-private-dev libc6 libgcc1 libstdc++6 libxcb1 libx11-6 libxext6 libxrender1 libxi6 libxrandr2 libxtst6 libglib2.0-0 libfontconfig1 libfreetype6 libpng16-16 libexpat1 zlib1g libgl1-mesa-glx libglu1-mesa libxcomposite1 libxdamage1 libxfixes3 libxinerama1 libxcursor1 libasound2 libcurl4 cmake libxcb-shape0 libsm6
 RUN curl -L -o Nuke15.1v2-linux-x86_64.tgz https://www.foundry.com/products/download_product?file=Nuke15.1v2-linux-x86_64.tgz && \
     tar -xvf Nuke15.1v2-linux-x86_64.tgz && \
     ./Nuke15.1v2-linux-x86_64.run --accept-foundry-eula && \
