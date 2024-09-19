@@ -18,8 +18,10 @@ COPY --from=opencue/rqd /opt/opencue/proto/ /opt/opencue/proto/
 
 RUN mkdir -p /etc/opencue
 #COPY --from=opencue/rqd /etc/opencue/rqd.conf /etc/opencue/rqd.conf
-RUN echo "[Override]" > /etc/opencue/rqd.conf \
-  echo "USE_NIMBY_PYNPUT=false" >> /etc/opencue/rqd.conf
+RUN echo "[Override]" > /etc/opencue/rqd.conf && \
+  echo "USE_NIMBY_PYNPUT=false" >> /etc/opencue/rqd.conf && \
+  echo "RQD_BECOME_JOB_USER=false" >> /etc/opencue/rqd.conf && \
+  echo "RQD_USE_PATH_ENV_VAR=True" >> /etc/opencue/rqd.conf
 
 RUN tar -xvf /opt/opencue/rqd-*-all.tar.gz --strip-components=1
 
