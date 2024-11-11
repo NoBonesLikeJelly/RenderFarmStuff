@@ -1,4 +1,4 @@
-FROM it069989.massey.ac.nz:5000/baserqdubuntu:1.0
+FROM it069989.massey.ac.nz:5000/baserqdubuntu:1.1
 
 #COPY Nuke15.1v2-linux-x86_64.tgz ./
 RUN apt-get update 
