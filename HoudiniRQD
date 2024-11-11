@@ -1,4 +1,4 @@
-FROM it069989.massey.ac.nz:5000/blenderrqd
+FROM it069989.massey.ac.nz:5000/blenderrqd:1.2
 
 #ARG BLENDER_INSTALL_DIR=/usr/local/blender
 #RUN mkdir -p ${BLENDER_INSTALL_DIR}

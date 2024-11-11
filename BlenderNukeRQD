@@ -1,4 +1,4 @@
-FROM it069989.massey.ac.nz:5000/nukerqd
+FROM it069989.massey.ac.nz:5000/nukerqd:1.2
 
 RUN apt-get update 
 RUN apt-get install -y wget
