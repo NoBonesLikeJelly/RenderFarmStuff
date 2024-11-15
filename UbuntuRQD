@@ -12,5 +12,5 @@ RUN apt-get install -y wget libgl1-mesa-glx curl qtbase5-dev qt5-qmake qtbase5-p
 ENV PATH="$PATH:/ceph/RenderBinaries/Ubuntu/Nuke15.1v2:/ceph/RenderBinaries/Ubuntu/Blender4.2:/ceph/RenderBinaries/Ubuntu/hfs20.5.332/bin:/ceph/RenderBinaries/Ubuntu/hfs20.5.332/houdini/sbin"
 RUN mkdir -p /usr/local/foundry/RLM && echo "HOST ITS-FOUNDRY any 4101" > /usr/local/foundry/RLM/foundry_client.lic
 
-ENTRYPOINT ["hserver", "-S", "its-houdini", "/bin/bash", "-c", "set -e && rqd"]
+ENTRYPOINT ["hserver", "-S", "its-houdini &&", "/bin/bash", "-c", "set -e && rqd"]
 
