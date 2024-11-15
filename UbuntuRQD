@@ -1,0 +1,16 @@
+FROM it069989.massey.ac.nz:5000/baserqdubuntu:1.1
+
+
+#Nuke (Ano other) Dependencies
+RUN apt-get update 
+RUN apt-get install -y wget libgl1-mesa-glx curl qtbase5-dev qt5-qmake qtbase5-private-dev \
+    libc6 libgcc1 libstdc++6 libxcb1 libx11-6 libxext6 libxrender1 libxi6 libxrandr2 libxtst6 \
+    libglib2.0-0 libfontconfig1 libfreetype6 libpng16-16 libexpat1 zlib1g libgl1-mesa-glx \
+    libglu1-mesa libxcomposite1 libxdamage1 libxfixes3 libxinerama1 libxcursor1 libasound2 \
+    libcurl4 cmake libxcb-shape0 libsm6 libnss3 libxss1 libpci3
+
+ENV PATH="$PATH:/ceph/RenderBinaries/Ubuntu/Nuke15.1v2:/ceph/RenderBinaries/Ubuntu/Blender4.2:/ceph/RenderBinaries/Ubuntu/hfs20.5.332/bin:/ceph/RenderBinaries/Ubuntu/hfs20.5.332/houdini/sbin"
+RUN mkdir -p /usr/local/foundry/RLM && echo "HOST ITS-FOUNDRY any 4101" > /usr/local/foundry/RLM/foundry_client.lic
+
+ENTRYPOINT ["hserver", "-S", "its-houdini", "/bin/bash", "-c", "set -e && rqd"]
+
