@@ -14,6 +14,7 @@ RUN mkdir -p /usr/local/foundry/RLM && echo "HOST ITS-FOUNDRY any 4101" > /usr/l
 
 RUN echo $PATH
 
+RUN echo "hserver -S its-houdini" >> ~/.bashrc
 #RUN ["hserver", "-S", "its-houdini"]
 
 ENTRYPOINT ["/bin/bash", "-c", "set -e && rqd"]
